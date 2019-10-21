@@ -1,14 +1,17 @@
 <?php
 
-namespace services/caller;
+namespace services\caller;
+
+use services\caller\interfaces\CallerInterface;
+use yii\base\BaseObject;
 
 
-class Caller {
+class Caller extends BaseObject implements CallerInterface {
 
     /**
-     * @return
+     * @return string
     */
-    public function start() {
+    public function start(): string {
 
         return 'Start';
     }

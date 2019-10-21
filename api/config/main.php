@@ -16,9 +16,6 @@ return [
             'class' => 'api\modules\v1\Module'
         ]
     ],
-	'aliases' => [
-        '@api' => dirname(dirname(__DIR__)) . '\api',
-    ],
     'components' => [        
         'user' => [
             'identityClass' => 'common\models\User',
@@ -41,13 +38,15 @@ return [
                 [
                     'class' => \yii\rest\UrlRule::class,
                     'pluralize' => false,
-                    'controller' => ['v1/number'],
+                    'controller' => ['v1/'],
                     'extraPatterns' => [
-                        '/' => 'v1/number/generate',
+                        '/' => 'v1/',
                     ],
                 ],
+                '<controller>/<action>' => 'v1/<controller>/<action>',
+                '<controller>' => 'v1/<controller>/index',
                 'GET retrieve/<number>' => 'v1/number/retrieve',
-                'GET <action>' => 'v1/number/<action>',
+//                'GET <action>' => 'v1/number/<action>',
             ],
         ],
     ],
